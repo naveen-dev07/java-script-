@@ -1,0 +1,48 @@
+// forEach() - Iterates over each element in an array and executes a callback function
+// Syntax: array.forEach(callback(element, index, array))
+// Note: forEach does NOT return a value, it just executes the callback for each element
+
+const coding = ["js", "ruby", "java", "python", "cpp"]
+
+// Example 1: Using regular function
+// coding.forEach( function (val){
+//     console.log(val);
+// } )
+
+// Example 2: Using arrow function (cleaner syntax)
+// coding.forEach( (item) => {
+//     console.log(item);
+// } )
+
+// Example 3: Passing a named function as callback
+// function printMe(item){
+//     console.log(item);
+// }
+
+// coding.forEach(printMe)
+
+// Example 4: Using all three parameters (item, index, array)
+coding.forEach( (item, index, arr)=> {
+//     console.log(item, index, arr);
+// } )
+
+// Example 5: Iterating over array of objects
+const myCoding = [
+    {
+        languageName: "javascript",
+        languageFileName: "js"
+    },
+    {
+        languageName: "java",
+        languageFileName: "java"
+    },
+    {
+        languageName: "python",
+        languageFileName: "py"
+    },
+]
+
+// Accessing properties from objects in the array
+myCoding.forEach( (item) => {
+    
+    console.log(item.languageName);
