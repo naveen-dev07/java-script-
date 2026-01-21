@@ -1,4 +1,4 @@
-// this one is created by me 
+// this one is created by me .
 
 let user = Number(prompt("enter a no."))
 if (user%3==0) {
