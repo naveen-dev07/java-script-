@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JS Events Easy Notes</title>
+
+<style>
+  body {
+    font-family: Arial;
+    padding: 20px;
+  }
+
+  .container {
+    padding: 20px;
+    border: 2px solid black;
+  }
+
+  .child-container {
+    padding: 20px;
+    border: 2px solid blue;
+    margin-top: 10px;
+  }
+
+  .child {
+    padding: 20px;
+    border: 2px solid red;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h2 id="title">JavaScript Events</h2>
+
+<button id="btn">Click Me</button>
+
+<div class="container">
+  Container
+  <div class="child-container">
+    Child Container
+    <div class="child">Child</div>
+  </div>
+</div>
+
+<input type="text" id="inputBox" placeholder="Type something">
+
+<script>
+
+/* =====================================================
+   1. INTRODUCTION TO EVENTS
+===================================================== */
+
+/*
+Event = signal that something happened
+Example:
+- click
+- dblclick
+- mouseover
+- keydown
+*/
+
+const btn = document.getElementById("btn");
+
+/* =====================================================
+   2. addEventListener
+===================================================== */
+
+// Button click event
+btn.addEventListener("click", () => {
+  document.getElementById("title").innerText = "Button Clicked 😎";
+});
+
+/*
+NOTE:
+- addEventListener(event, function)
+- Safe & recommended
+*/
+
+/* =====================================================
+   3. MOUSE EVENTS
+===================================================== */
+
+btn.addEventListener("dblclick", () => {
+  alert("Double Clicked!");
+});
+
+btn.addEventListener("mouseover", () => {
+  btn.style.background = "yellow";
+});
+
+btn.addEventListener("mouseleave", () => {
+  btn.style.background = "";
+});
+
+btn.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+  alert("Right Click Disabled");
+});
+
+/*
+Mouse Events:
+- click
+- dblclick
+- mouseover
+- mouseleave
+- contextmenu (right click)
+*/
+
+/* =====================================================
+   4. KEYBOARD EVENTS
+===================================================== */
+
+const inputBox = document.getElementById("inputBox");
+
+inputBox.addEventListener("keydown", (e) => {
+  console.log("Key pressed:", e.key);
+});
+
+/*
+NOTE:
+- e.key → actual key
+- e.keyCode → old method
+*/
+
+/* =====================================================
+   5. EVENT BUBBLING
+===================================================== */
+
+document.querySelector(".container").addEventListener("click", () => {
+  alert("Container Clicked");
+});
+
+document.querySelector(".child-container").addEventListener("click", () => {
+  alert("Child Container Clicked");
+});
+
+document.querySelector(".child").addEventListener("click", () => {
+  alert("Child Clicked");
+});
+
+/*
+NOTE:
+- Child → Parent → Grandparent
+- Isi ko event bubbling kehte hain
+*/
+
+/* =====================================================
+   6. STOP EVENT BUBBLING
+===================================================== */
+
+document.querySelector(".child").addEventListener("click", (e) => {
+  e.stopPropagation();
+  console.log("Only child event fired");
+});
+
+/*
+NOTE:
+- stopPropagation() bubbling rok deta hai
+*/
+
+/* =====================================================
+   7. REMOVE EVENT LISTENER
+===================================================== */
+
+function sayHello() {
+  console.log("Hello Event");
+}
+
+btn.addEventListener("click", sayHello);
+
+// btn.removeEventListener("click", sayHello);
+
+/*
+NOTE:
+- remove karne ke liye same function reference chahiye
+*/
+
+/* =====================================================
+   8. setInterval (Repeat work)
+===================================================== */
+
+let intervalId = setInterval(() => {
+  btn.style.background = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+}, 2000);
+
+// clearInterval(intervalId);
+
+/*
+NOTE:
+- setInterval → bar bar chalta hai
+- clearInterval → stop
+*/
+
+/* =====================================================
+   9. setTimeout (Delay work)
+===================================================== */
+
+let timeoutId = setTimeout(() => {
+  alert("This runs after 3 seconds");
+}, 3000);
+
+// clearTimeout(timeoutId);
+
+/*
+NOTE:
+- setTimeout → ek baar
+- clearTimeout → cancel
+*/
+
+
+
+</script>
+</body>
+</html>
