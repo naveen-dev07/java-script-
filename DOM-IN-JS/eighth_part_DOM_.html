@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IIFE, Destructuring, Spread, Scope & Hoisting</title>
+
+<style>
+  body {
+    font-family: Arial;
+    padding: 20px;
+  }
+  .box {
+    border: 2px solid black;
+    padding: 15px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Advanced JavaScript Concepts (ONE FILE)</h2>
+<div class="box">Open Console 👀</div>
+
+<script>
+
+/* =====================================================
+   1. IIFE (Immediately Invoked Function Expression)
+===================================================== */
+
+/*
+IIFE = function jo bante hi turant run ho jaye
+Use case:
+- Global scope ganda na ho
+- await use karna outside async function
+*/
+
+(function () {
+  console.log("IIFE executed immediately 🚀");
+})();
+
+/*
+NOTE:
+- ()() → pehle function wrap, phir call
+*/
+
+/* ---------- IIFE with async/await ---------- */
+
+(async function () {
+  const msg = await Promise.resolve("Await inside IIFE 😎");
+  console.log(msg);
+})();
+
+/*
+NOTE:
+- Browser me await use karne ka shortcut
+*/
+
+/* =====================================================
+   2. DESTRUCTURING
+===================================================== */
+
+/* ---------- Array Destructuring ---------- */
+
+let arr = [10, 20, 30, 40];
+
+let [a, b, ...rest] = arr;
+
+console.log(a);     // 10
+console.log(b);     // 20
+console.log(rest);  // [30, 40]
+
+/*
+NOTE:
+- values direct variables me aa jati hain
+- ...rest → baki values
+*/
+
+/* ---------- Object Destructuring ---------- */
+
+let user = {
+  name: "Naveen",
+  age: 20,
+  city: "Delhi"
+};
+
+let { name, age } = user;
+
+console.log(name); // Naveen
+console.log(age);  // 20
+
+/*
+NOTE:
+- property name same hona chahiye
+*/
+
+/* =====================================================
+   3. SPREAD OPERATOR (...)
+===================================================== */
+
+/* ---------- Spread with Array ---------- */
+
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5];
+
+console.log(arr2);
+
+/*
+NOTE:
+- original array change nahi hota
+*/
+
+/* ---------- Spread with Object ---------- */
+
+let obj1 = { x: 1, y: 2 };
+let obj2 = { ...obj1, z: 3 };
+
+console.log(obj2);
+
+/*
+NOTE:
+- copy + add new values
+*/
+
+/* =====================================================
+   4. SCOPE (Global, Local, Block)
+===================================================== */
+
+/* ---------- Global Scope ---------- */
+
+let globalVar = "I am global";
+
+function testScope() {
+  console.log(globalVar);
+}
+
+testScope();
+
+/*
+NOTE:
+- pure program me accessible
+*/
+
+/* ---------- Block Scope (let / const) ---------- */
+
+{
+  let blockVar = "Inside block";
+  console.log(blockVar);
+}
+
+// console.log(blockVar); ❌ error
+
+/*
+NOTE:
+- let & const → block scope
+*/
+
+/* ---------- var Scope ---------- */
+
+{
+  var varScope = "var ignores block";
+}
+
+console.log(varScope);
+
+/*
+NOTE:
+- var block ko respect nahi karta
+*/
+
+/* =====================================================
+   5. HOISTING
+===================================================== */
+
+/* ---------- var hoisting ---------- */
+
+console.log(x);
+var x = 10;
+
+/*
+NOTE:
+- var declaration upar chali jati hai
+- value baad me assign hoti hai
+*/
+
+/* ---------- let / const hoisting ---------- */
+
+// console.log(y); ❌ error
+let y = 20;
+
+/*
+NOTE:
+- let/const hoisted hote hain
+- but TDZ (Temporal Dead Zone) me hote hain
+*/
+
+/* ---------- Function Hoisting ---------- */
+
+sayHello();
+
+function sayHello() {
+  console.log("Function hoisted ✅");
+}
+
+/*
+NOTE:
+- function declarations fully hoisted
+*/
+
+/* =====================================================
+   FINAL SUMMARY
+===================================================== */
+
+/*
+IIFE        → turant execute
+Destructuring → easy value extract
+Spread      → copy & expand
+Scope       → access area
+Hoisting    → declarations upar jati hain
+*/
+
+</script>
+</body>
+</html>
