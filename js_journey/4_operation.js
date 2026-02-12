@@ -2,7 +2,7 @@
 console.log(2+2);
 console.log(2*2);
 console.log(2-2);
-console.log(2**2); // js taking this as a power of like 2**2=4 3**3=9
+console.log(2**2); // js taking this as a power of like 2**2=4 3**3=9.
 console.log(2/2);
 console.log(2%2); // its a modulus giving the  remainder like "0"
 
