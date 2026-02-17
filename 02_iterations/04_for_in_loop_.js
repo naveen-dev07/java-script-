@@ -25,5 +25,5 @@ for (const key in programming) {
 // map.set('IN', "India")
 
 // for (const key in map) {
-//     console.log(key); // won't print anything
+//     console.log(key); // won't print anything.
 // }
