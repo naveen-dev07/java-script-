@@ -47,4 +47,4 @@ const myFunction = function(){  // type of function is but output is function  "
 // one main thing:
 
 console.log(typeof  bigNumber); // ans is undefined :
- // if know more about so go to ecma script they are  briefly explain it 
+ // if know more about so go to ecma script they are  briefly explain it .
