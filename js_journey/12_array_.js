@@ -1,7 +1,7 @@
 //***********************Array************************
 
 const myarr = [0,1,3,4,5,6,7, true , "hitesh"] // array is denoting in [ ] bracket and this data types accpet all types elements like bollean, string,etc:
-// its mutabale 
+// its mutabale. 
 
 console.log(myarr);
 console.log(myarr[0]);// output:0 
