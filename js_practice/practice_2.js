@@ -7,7 +7,7 @@ for (let no2 = 0; no2 <= 10; no2++) {
     
 }
 
-// ########### Multiplication Table of any number #########
+// ############ Multiplication Table of any number #########
 
 let table1 = 2
 for (let no3 = 0; no3 <= 10; no3++) {
