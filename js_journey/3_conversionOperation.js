@@ -14,7 +14,7 @@ console.log(typeof valueInNumber);
 console.log(typeof score_string);  // giving string
 
 
-let score_maxalpha = "33abc"
+let score_maxalpha = "33abcx"
 
 let valueofnumAlpha = Number(score_maxalpha) // returnig no.
 
