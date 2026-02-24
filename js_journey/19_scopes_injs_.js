@@ -18,7 +18,7 @@ if (true){  // true means i defnattly use it
 // why we did'not use var because 
 console.log(a) // if we prints then you get error 
 console.log(b) // also error 
-console.log(c) // but here output : 30 that's the problem because at line 16 there scope gonaa be end:so did'nt give output: 
+console.log(c) // but here output : 30 that's the problem because at line 16 there scope gonaa be end:so did'nt give output.
 
 
 
