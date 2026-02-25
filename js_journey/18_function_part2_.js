@@ -11,7 +11,7 @@ function calculatecartprice(val1,val2,...num1){   // ... this is used as rest op
 
 const user = {
     username:"naveen",
-    Price:2999,
+    Price:"2999",
 
 }
 
